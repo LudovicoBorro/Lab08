@@ -1,6 +1,7 @@
 [client]
 user=root
-password=ricercaopforreal!347?
+password=
+#password=ricercaopforreal!347?
 host=127.0.0.1
 database=poweroutages
 raise_on_warnings=True

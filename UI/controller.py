@@ -25,7 +25,13 @@ class Controller:
         max_ore = int(max_ore)
 
         # Richiamo il metodo del modello per risultato algoritmo ricorsivo
-        self._model.worstCase(self._idMap.get(val_nerc), max_anni, max_ore)
+        dizio = self._model.get_best_solution(self._idMap.get(val_nerc), max_anni, max_ore)
+
+        self._view._txtOut.controls.append(ft.Text(f"Total people affected: {dizio.get("clients")}"))
+        self._view._txtOut.controls.append(ft.Text(f"Total hours of outage: {dizio.get("hours")}"))
+        for event in dizio.get("sol"):
+            self._view._txtOut.controls.append(ft.Text(event))
+        self._view.update_page()
 
     def fillDD(self):
         nercList = self._model.listNerc

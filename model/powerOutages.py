@@ -61,6 +61,13 @@ class Event:
         return (f"id={self._id}, customers_affected={self._customers_affected} "
                 f"start_time={self._date_event_began}, end_time= {self._date_event_finished}")
 
+    def __eq__(self, other):
+        return self.id == other.id
+
     def __hash__(self):
         return hash(self._id)
+
+    def __repr__(self):
+        # return f"(id={self._id}, start_time={self._date_event_began}, end_time={self._date_event_finished})"
+        return f"id={self._id}"
 
